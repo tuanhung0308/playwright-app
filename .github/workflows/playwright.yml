@@ -42,7 +42,19 @@ jobs:
         working-directory: ./pw-practice-app
         run: npm ci
 
-      # 6. Khởi động Angular app ở chế độ nền (background)
+      # 6a. DEBUG - in ra chính xác CI đang đứng ở thư mục nào, thấy file gì
+      #     Dùng để chẩn đoán, có thể xóa bước này sau khi đã tìm ra nguyên nhân
+      - name: DEBUG - inspect pw-practice-app before starting
+        working-directory: ./pw-practice-app
+        run: |
+          echo "===== Current directory ====="
+          pwd
+          echo "===== Files in this directory ====="
+          ls -la
+          echo "===== package.json scripts section ====="
+          cat package.json | grep -A 6 '"scripts"'
+
+      # 6b. Khởi động Angular app ở chế độ nền (background)
       #    Ghi log ra file để debug nếu app không lên được
       - name: Start Angular app in background
         working-directory: ./pw-practice-app
