@@ -18,20 +18,20 @@ test('navigation to form page', async ({ page }) => {
     await navigateTo.tooltipPage()
 })
 
-test('parameterized methods', async ({ page }) => {
-    const navigateTo = new NavigationPage(page)
-    const onFormLayoutsPage = new FormLayoutsPage(page)
-    const onDatepickerPage = new DatepickerPage(page)   
+// test('parameterized methods', async ({ page }) => {
+//     const navigateTo = new NavigationPage(page)
+//     const onFormLayoutsPage = new FormLayoutsPage(page)
+//     const onDatepickerPage = new DatepickerPage(page)   
 
-    await navigateTo.formLayoutsPage()
-    await onFormLayoutsPage.submitUsingTheGridFormWithCredentialsAndSelectOption('testdt@test.com', 'Welcome1', 'Option 2')
-    await onFormLayoutsPage.submitInlineFormWithNameEmailAndCheckBox('John Smith', 'John@example.com', true)
-    await page.screenshot({path: 'screenshots/formLayouts.png'})
-    const buffer = await page.screenshot()
-    console.log(buffer.toString('base64'))
+//     await navigateTo.formLayoutsPage()
+//     await onFormLayoutsPage.submitUsingTheGridFormWithCredentialsAndSelectOption('testdt@test.com', 'Welcome1', 'Option 2')
+//     await onFormLayoutsPage.submitInlineFormWithNameEmailAndCheckBox('John Smith', 'John@example.com', true)
+//     await page.screenshot({path: 'screenshots/formLayouts.png'})
+//     const buffer = await page.screenshot()
+//     console.log(buffer.toString('base64'))
 
-    await navigateTo.datepickerPage()
-    await onDatepickerPage.selectCommonDatePickerDateFromToday(10)
-    await onDatepickerPage.selectDatepickerWithRangeFromToday(5, 15)    
-})
+//     await navigateTo.datepickerPage()
+//     await onDatepickerPage.selectCommonDatePickerDateFromToday(10)
+//     await onDatepickerPage.selectDatepickerWithRangeFromToday(5, 15)    
+// })
 

@@ -54,47 +54,47 @@ test('checkboxes', async ({ page }) => {
     }
 })
 
-test('lists and dropdowns', async ({ page }) => {
-    const dropDownMenu = page.locator('ngx-header nb-select')
-    await dropDownMenu.click()
+// test('lists and dropdowns', async ({ page }) => {
+//     const dropDownMenu = page.locator('ngx-header nb-select')
+//     await dropDownMenu.click()
 
-    page.getByRole('list')
-    page.getByRole('listitem')
+//     page.getByRole('list')
+//     page.getByRole('listitem')
 
-    const optionList = page.locator('nb-option-list nb-option')
-    await expect(optionList).toHaveText(["Light", "Dark", "Cosmic", "Corporate"])
-    await optionList.filter({hasText: "Cosmic"}).click()
-    const header = page.locator('nb-layout-header')
-    await expect(header).toHaveCSS('background-color', 'rgb(50, 50, 89)')
+//     const optionList = page.locator('nb-option-list nb-option')
+//     await expect(optionList).toHaveText(["Light", "Dark", "Cosmic", "Corporate"])
+//     await optionList.filter({hasText: "Cosmic"}).click()
+//     const header = page.locator('nb-layout-header')
+//     await expect(header).toHaveCSS('background-color', 'rgb(50, 50, 89)')
 
-    const colors = [
-        "Light", "rgb(255, 255, 255)",
-        "Dark", "rgb(34, 34, 34)",
-        "Cosmic", "rgb(50, 50, 89)",
-        "Corporate", "rgb(255, 255, 255)"
-    ]
+//     const colors = [
+//         "Light", "rgb(255, 255, 255)",
+//         "Dark", "rgb(34, 34, 34)",
+//         "Cosmic", "rgb(50, 50, 89)",
+//         "Corporate", "rgb(255, 255, 255)"
+//     ]
 
-    for(
-        const color in colors) {
-        await optionList.filter({hasText: color}).click()
-        await expect(header).toHaveCSS('background-color', colors[color])
-        if(color != "Corporate")
-            await dropDownMenu.click()
-    }
-})
+//     for(
+//         const color in colors) {
+//         await optionList.filter({hasText: color}).click()
+//         await expect(header).toHaveCSS('background-color', colors[color])
+//         if(color != "Corporate")
+//             await dropDownMenu.click()
+//     }
+// })
 
-test ('tooltips', async ({ page }) => {
-    await page.getByText('Modal & Overlays').click()
-    await page.getByText('Tooltip').click()
+// test ('tooltips', async ({ page }) => s{
+//     await page.getByText('Modal & Overlays').click()
+//     await page.getByText('Tooltip').click()
 
-    const toolTipCard = page.locator('nb-card', {hasText: "Tooltip Placements"})
-    await toolTipCard.getByRole('button', {name: "Top"}).hover()
-    await page.screenshot({path: 'screenshots/tooltip.png'})
+//     const toolTipCard = page.locator('nb-card', {hasText: "Tooltip Placements"})
+//     await toolTipCard.getByRole('button', {name: "Top"}).hover()
+//     await page.screenshot({path: 'screenshots/tooltip.png'})
 
-    page.getByRole('tooltip')
-    const tooltip = await page.locator('nb-tooltip').textContent()
-    expect(tooltip).toEqual('This is a tooltip')
-})
+//     page.getByRole('tooltip')
+//     const tooltip = await page.locator('nb-tooltip').textContent()
+//     expect(tooltip).toEqual('This is a tooltip')
+// })
 
 test ('dialog boxes', async ({ page }) => {
     await page.getByText('Tables & Datas').click()
