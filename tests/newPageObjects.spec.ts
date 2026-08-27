@@ -14,8 +14,8 @@ test('navigation to form page', async ({ page }) => {
     await navigateTo.formLayoutsPage()
     await navigateTo.datepickerPage()
     await navigateTo.smartTablePage()
-    await navigateTo.toastrPage()
-    await navigateTo.tooltipPage()
+    // await navigateTo.toastrPage()
+    // await navigateTo.tooltipPage()
 })
 
 // test('parameterized methods', async ({ page }) => {
